@@ -4,7 +4,7 @@ import scapy.all as scapy
 from scapy.layers import http
 
 def sniff(interface):
-    scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet) #you can add filter="port 21" to filter ports other than http/s
+    scapy.sniff(iface=interface, store=False, prn=process_sniffed_packet) #you can add filter="port 21" to filter ports other than http
 
 def get_url(packet):
     return packet[http.HTTPRequest].Host + packet[http.HTTPRequest].Path
